@@ -21,13 +21,21 @@ export default function useOrder() {
         setOrder(order.filter((item) => item.id !== id))
         
     }
-    console.log(order)
+    const placeOrder = () => {
+        // Logic to place the order
+        // This could involve sending the order to a server or processing it in some way
+        console.log('Order placed:', order)
+        // Reset the order after placing it
+        setOrder([])
+        setTip(0)
+    }
     return{
         order,
         tip,
         setTip,
         // Functions to add and remove items from the order
         addItem,
-        removeItem
+        removeItem,
+        placeOrder
     }
 }

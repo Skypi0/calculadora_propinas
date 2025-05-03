@@ -23,21 +23,22 @@ const tipOptions = [
 ]
 type TipPercentageFormProps = {
     setTip: Dispatch<React.SetStateAction<number>>
+    tip: number
 }
-export default function TipPercentageForm({setTip}: TipPercentageFormProps) {
+export default function TipPercentageForm({setTip,tip}: TipPercentageFormProps) {
     return (
         <>
             <div>
                 <h2 className="font-black text-center text-2xl">Propina</h2>
                 <form>
-                    {tipOptions.map((tip) => (
-                        <div className="flex items-center gap-2" key={tip.id}>
-                            <label htmlFor="{tip.id}">{tip.label}</label>
+                    {tipOptions.map((tipOp) => (
+                        <div className="flex items-center gap-2" key={tipOp.id}>
+                            <label htmlFor="{tip.id}">{tipOp.label}</label>
                             <input 
-                            id={tip.id}
+                            id={tipOp.id}
                             type="radio"
                             name="tip"
-                            value={tip.value}
+                            value={tipOp.value}
                             className="cursor-pointer"     
                             onChange={(e) => {
                                 setTip((+e.target.value))
@@ -45,6 +46,8 @@ export default function TipPercentageForm({setTip}: TipPercentageFormProps) {
                                 // setTip(Number(e.target.value))
                                 // setTip(parseFloat(e.target.value))
                             }}
+                            checked={tip === tipOp.value}
+                            //we can use the checked property to set the default value of the radio button
                             />
                         </div>
                     ))}

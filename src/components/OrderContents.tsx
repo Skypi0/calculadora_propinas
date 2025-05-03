@@ -11,8 +11,6 @@ export default function OrderContents({ order, removeItem}: OrderContentsProps) 
             <h2 className="font-black text-center text-5xl">Consumo</h2>
             <div className="space-y-3 mt-5">
                 {
-                    order.length === 0 ?
-                        <p className="text-center text-2xl">No hay productos en el pedido</p> :
                         order.map((item) => (
                             <div key={item.id} className="flex items-center bg-white shadow-md p-5 rounded-lg justify-between">
                                 <div>
